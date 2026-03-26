@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #141e30, #243b55);
+}
+
+.clock-container {
+  text-align: center;
+  background: rgba(255,255,255,0.08);
+  padding: 30px 60px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+
+#time {
+  font-size: 50px;
+  color: #00ffff;
+  text-shadow: 0 0 10px lab(94.43% -36.88 91.26),
+               0 0 20px hsl(75, 100%, 50%),
+               0 0 40px #4800ff;
+}
+
+#date {
+  margin-top: 10px;
+  color: white;
+  font-size: 18px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: none;
+  background: hsl(19, 100%, 39%);
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
