@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, hsl(25, 76%, 66%), #764ba2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+/* Container Glass Effect */
+.container {
+  width: 450px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  color: white;
+}
+
+/* Title */
+.container h2 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #eee;
+}
+
+/* Textarea */
+.note-input textarea {
+  width: 100%;
+  height: 90px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.note-input textarea:focus {
+  outline: none;
+}
+
+/* Add Button */
+.note-input button {
+  padding: 10px;
+  width: 100%;
+  background: #00c9a7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.note-input button:hover {
+  background: #00a78e;
+}
+
+/* Notes Counter */
+.note-count {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  color: #eee;
+}
+
+/* Notes Container */
+.notes-container {
+  margin-top: 15px;
+  display: grid;
+  gap: 10px;
+}
+
+/* Note Card */
+.note {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.note p {
+  margin-bottom: 10px;
+}
+
+/* Note Actions */
+.note-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.note-actions button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.note-actions button:first-child {
+  background: hsl(266, 100%, 39%);
+}
+
+.note-actions button:last-child {
+  background: #ff4d4d;
+}
+
+/* Footer */
+.footer {
+  margin-top: 15px;
+  font-size: 12px;
+  text-align: center;
+  color: #ddd;
+}

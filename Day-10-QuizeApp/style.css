@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glass Container */
+.quiz-container {
+  width: 400px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  color: white;
+  text-align: center;
+}
+
+/* Question */
+#question {
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+/* Options */
+.options button {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.options button:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* Correct / Wrong */
+.correct {
+  background: #00c9a7 !important;
+}
+
+.wrong {
+  background: #ff4d4d !important;
+}
+
+/* Buttons */
+#nextBtn, #restartBtn {
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  background: #00c9a7;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+#nextBtn:hover, #restartBtn:hover {
+  background: #00a78e;
+}
+
+/* Restart hidden */
+#restartBtn {
+  display: none;
+}
+
+/* Progress text */
+#progress {
+  font-size: 14px;
+  color: #ddd;
+}
