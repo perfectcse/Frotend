@@ -2,36 +2,34 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #f4f6f9;
   display: flex;
   justify-content: center;
-  padding-top: 30px;
+  padding: 30px;
 }
 
+/* Container */
 .app {
   width: 420px;
   background: white;
   padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
+/* Title */
 h1 {
   text-align: center;
   margin-bottom: 15px;
 }
 
-/* Balance Card */
+/* Balance */
 .balance-card {
-  background: linear-gradient(135deg, #667eea, #5a67d8);
-  color: white;
   text-align: center;
-  padding: 20px;
-  border-radius: 10px;
   margin-bottom: 15px;
 }
 
@@ -42,68 +40,112 @@ h1 {
   margin-bottom: 15px;
 }
 
-.income {
-  background: #00c9a7;
-  color: white;
+.income, .expense {
   width: 48%;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   text-align: center;
+}
+
+.income {
+  background: #e6fff5;
+  color: #00a86b;
 }
 
 .expense {
-  background: #ff4d4d;
-  color: white;
-  width: 48%;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
+  background: #ffecec;
+  color: #e63946;
 }
 
 /* Form */
-.form input, .form button {
+.form input {
   width: 100%;
   padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
+  margin: 6px 0;
+  border-radius: 6px;
   border: 1px solid #ddd;
 }
 
 .form button {
-  background: #667eea;
+  width: 100%;
+  padding: 10px;
+  background: #4f46e5;
   color: white;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
+}
+
+.form button:hover {
+  background: #4338ca;
 }
 
 /* History */
 .history ul {
   list-style: none;
-  max-height: 200px;
+  max-height: 220px;
   overflow-y: auto;
 }
 
-.history li {
-  background: #f4f4f4;
-  padding: 10px;
-  margin-top: 5px;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 5px;
+/* Empty */
+.empty {
+  text-align: center;
+  color: #777;
+  margin-top: 10px;
 }
 
+/* Transaction */
+.history li {
+  background: #fafafa;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Color */
 .plus {
-  border-right: 5px solid #00c9a7;
+  border-left: 4px solid #00a86b;
 }
 
 .minus {
-  border-right: 5px solid #ff4d4d;
+  border-left: 4px solid #e63946;
 }
 
-.history button {
-  background: red;
+/* Amount clickable */
+.amount {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Delete button */
+.delete-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #e63946;
   color: white;
   border: none;
   padding: 4px 6px;
+  border-radius: 4px;
   cursor: pointer;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 0.2s;
+}
+
+/* Show on hover */
+.history li:hover .delete-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Show on click */
+.show-delete .delete-btn {
+  opacity: 1;
+  transform: scale(1);
 }

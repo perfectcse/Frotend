@@ -9,8 +9,23 @@ const addBtn = document.getElementById("addBtn");
 
 let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
+// Format ₹
+function formatMoney(num) {
+  return "₹" + num.toLocaleString("en-IN");
+}
+
+// Format Date
+function formatDate(d) {
+  return new Date(d).toLocaleDateString("en-IN");
+}
+
+// Show UI
 function updateUI() {
   list.innerHTML = "";
+
+  if (transactions.length === 0) {
+    list.innerHTML = `<p class="empty">No transactions yet</p>`;
+  }
 
   let total = 0;
   let incomeTotal = 0;
@@ -23,55 +38,59 @@ function updateUI() {
     li.innerHTML = `
       <div>
         <strong>${t.text}</strong><br>
-        <small>${t.date}</small>
+        <small>${formatDate(t.date)}</small>
       </div>
-      <div>
-        ₹${t.amount}
-        <button onclick="deleteTransaction(${index})">X</button>
+
+      <div class="amount" onclick="toggleDelete(this)">
+        ${formatMoney(t.amount)}
       </div>
+
+      <button class="delete-btn" onclick="deleteTransaction(${index})">🗑</button>
     `;
 
     list.appendChild(li);
 
     total += t.amount;
 
-    if (t.amount > 0) {
-      incomeTotal += t.amount;
-    } else {
-      expenseTotal += t.amount;
-    }
+    if (t.amount > 0) incomeTotal += t.amount;
+    else expenseTotal += t.amount;
   });
 
-  balance.innerText = `₹${total}`;
-  income.innerText = `₹${incomeTotal}`;
-  expense.innerText = `₹${Math.abs(expenseTotal)}`;
+  balance.innerText = formatMoney(total);
+  income.innerText = formatMoney(incomeTotal);
+  expense.innerText = formatMoney(Math.abs(expenseTotal));
 
   localStorage.setItem("transactions", JSON.stringify(transactions));
 }
 
-addBtn.addEventListener("click", addTransaction);
+// Add
+addBtn.addEventListener("click", () => {
+  if (!text.value || !amount.value || !date.value) return;
 
-function addTransaction() {
-  if (text.value === "" || amount.value === "" || date.value === "") return;
-
-  const transaction = {
+  transactions.push({
     text: text.value,
     amount: +amount.value,
     date: date.value
-  };
-
-  transactions.push(transaction);
+  });
 
   text.value = "";
   amount.value = "";
   date.value = "";
 
   updateUI();
+});
+
+// Toggle delete
+function toggleDelete(el) {
+  const li = el.closest("li");
+  li.classList.toggle("show-delete");
 }
 
+// Delete
 function deleteTransaction(index) {
   transactions.splice(index, 1);
   updateUI();
 }
 
+// Load
 updateUI();
