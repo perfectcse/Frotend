@@ -1,0 +1,140 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #0f0f0f;
+  color: white;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: #111;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+header h1 {
+  font-size: 22px;
+}
+
+header input {
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  width: 260px;
+  outline: none;
+  transition: 0.3s;
+}
+
+header input:focus {
+  box-shadow: 0 0 10px #00c6ff;
+}
+
+/* Movies Grid */
+#movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 25px;
+}
+
+/* Movie Card */
+.movie {
+  background: #1c1c1c;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative; /* 🔥 important fix */
+  transition: 0.3s;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.movie:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* Poster */
+.movie img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.movie:hover img {
+  transform: scale(1.1);
+}
+
+/* Info */
+.movie-info {
+  padding: 12px;
+}
+
+.movie-info h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+/* Rating Colors */
+.movie-info span {
+  font-weight: bold;
+}
+
+/* Overview Hover */
+.overview {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.95);
+  padding: 15px;
+  transform: translateY(100%);
+  transition: 0.3s;
+  font-size: 12px;
+  line-height: 1.4;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}
+
+/* Scrollbar */
+.overview::-webkit-scrollbar {
+  width: 5px;
+}
+.overview::-webkit-scrollbar-thumb {
+  background: #00c6ff;
+}
+
+/* Status */
+#status {
+  text-align: center;
+  margin-top: 15px;
+  color: #aaa;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  color: #888;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}

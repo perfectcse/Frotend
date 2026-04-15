@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovieHub 🎬</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- SEO -->
+  <meta name="description" content="Search movies using MovieHub app powered by TMDb API">
+</head>
+
+<body>
+
+  <!-- 🔝 HEADER -->
+  <header class="header">
+    <div class="logo">
+      <h1>🎬 MovieHub</h1>
+    </div>
+
+    <!-- 🔍 SEARCH -->
+    <form id="form" class="search-form">
+      <input 
+        type="text" 
+        id="search" 
+        placeholder="Search movies..." 
+        autocomplete="off"
+      >
+    </form>
+  </header>
+
+  <!-- 🎬 MAIN CONTENT -->
+  <main class="container">
+
+    <!-- STATUS MESSAGE -->
+    <p id="status" class="status"></p>
+
+    <!-- MOVIE GRID -->
+    <section id="movies" class="movies"></section>
+
+  </main>
+
+  <!-- 📌 FOOTER -->
+  <footer class="footer">
+    <p>© 2026 MovieHub | Built by Vishal 🚀</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
