@@ -1,4 +1,4 @@
-const API_KEY = "YOUR_API_KEY"; // ⚠️ keep private later
+const API_KEY = "1596b9274b07efadc205e7d05af3166a"; // ⚠️ keep private later
 const BASE_URL = "https://api.themoviedb.org/3/search/movie";
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
