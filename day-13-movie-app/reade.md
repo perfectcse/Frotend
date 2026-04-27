@@ -85,6 +85,8 @@ Better user experience (loading + feedback)
 📱 Mobile optimization
 🎥 Movie details page (advanced)
 
+link: https://movienows.netlify.app/ 
+
 
 ⚠️ Note
 
