@@ -1,0 +1,105 @@
+📋 Day 16 – Kanban Board
+
+📌 Project Overview
+This project is a Kanban Board web application built using HTML, CSS, and JavaScript.
+It helps users manage tasks visually by organizing them into different workflow stages.
+The main goal of this project was to learn drag & drop functionality, DOM manipulation, and localStorage handling.
+
+✨ Features
+
+➕ Add new tasks
+📦 Drag & drop tasks between columns
+✏ Edit existing tasks
+🗑 Delete tasks
+💾 Save tasks using localStorage
+🎨 Modern glassmorphism UI
+📱 Responsive layout
+⚡ Smooth hover & drag animations
+
+
+🧱 Technologies Used
+
+HTML5
+CSS3
+JavaScript (ES6+)
+
+
+⚡ How It Works
+
+
+User enters a task
+
+
+JavaScript dynamically creates a task card
+
+
+Tasks can be:
+
+Dragged between columns
+Edited
+Deleted
+
+
+
+localStorage saves all tasks automatically
+
+
+Tasks remain after page refresh
+
+
+
+📂 Folder Structure
+day-17-kanban-board/
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+
+
+🧠 Concepts Learned
+🔹 JavaScript
+
+DOM manipulation
+Dynamic element creation
+Event handling
+Drag & Drop API
+localStorage
+State updates
+
+🔹 UI/UX
+
+Glassmorphism design
+Grid layout
+Hover effects
+Smooth transitions
+Responsive structure
+
+
+🎯 Key Highlights
+
+Real drag & drop functionality 📦
+Persistent task storage 💾
+Interactive task management ⚡
+Clean and modern UI 🎨
+
+
+🚀 Future Improvements
+
+🗓 Due dates for tasks
+🎨 Priority labels/colors
+📱 Better mobile drag support
+🔔 Notifications/reminders
+👥 Multi-user collaboration
+🌙 Dark/Light mode toggle
+📊 Task analytics dashboard
+
+
+⚠️ Note
+
+Tasks are stored locally in browser storage
+Clearing browser storage will remove saved tasks
+
+
+🙌 Author
+Vishal – Frontend Developer Journey 🚀
