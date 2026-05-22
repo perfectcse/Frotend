@@ -1,0 +1,170 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: white;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  font-size: 32px;
+}
+
+/* Form */
+.task-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.task-form input {
+  width: 320px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+.task-form button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #38bdf8;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.task-form button:hover {
+  background: #0ea5e9;
+  transform: scale(1.05);
+}
+
+/* Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Columns */
+.column {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+
+  border-radius: 18px;
+  padding: 18px;
+
+  min-height: 450px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.column h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Task Area */
+.task-list {
+  min-height: 350px;
+}
+
+/* Task Card */
+.task {
+  background: #1e293b;
+  border-radius: 12px;
+
+  padding: 14px;
+  margin-bottom: 12px;
+
+  cursor: grab;
+
+  transition: 0.2s;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.task:hover {
+  transform: translateY(-3px);
+}
+
+/* Drag effect */
+.task.dragging {
+  opacity: 0.5;
+  transform: rotate(2deg);
+}
+
+/* Task text */
+.task p {
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* Buttons */
+.task-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.task-buttons button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  color: white;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.edit-btn {
+  background: #22c55e;
+}
+
+.delete-btn {
+  background: #ef4444;
+}
+
+.task-buttons button:hover {
+  transform: scale(1.08);
+}
+/* Body Layout Fix */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Board takes remaining space */
+.board {
+  flex: 1;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 12px;
+  margin-top: 20px;
+
+  color: #cbd5e1;
+  font-size: 13px;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Mobile Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kanban Board 📋</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 🔝 Header -->
+  <header>
+    <h1>📋 Kanban Board</h1>
+    <p>Manage your tasks efficiently 🚀</p>
+  </header>
+
+  <!-- ➕ Task Form -->
+  <section class="task-form">
+
+    <input
+      type="text"
+      id="taskInput"
+      placeholder="Enter new task..."
+      autocomplete="off"
+    >
+
+    <button id="addTask">Add Task</button>
+
+  </section>
+
+  <!-- 📦 Board -->
+  <main class="board">
+
+    <!-- 📝 Todo -->
+    <section class="column">
+      <h2>📝 Todo</h2>
+      <div class="task-list" id="todo"></div>
+    </section>
+
+    <!-- 🚀 Progress -->
+    <section class="column">
+      <h2>🚀 In Progress</h2>
+      <div class="task-list" id="progress"></div>
+    </section>
+
+    <!-- ✅ Done -->
+    <section class="column">
+      <h2>✅ Done</h2>
+      <div class="task-list" id="done"></div>
+    </section>
+
+  </main>
+
+  <!-- 📌 Footer -->
+  <footer>
+    <p>© 2026 Kanban Board | Built by Vishal 🚀</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
