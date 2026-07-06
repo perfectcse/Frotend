@@ -1,0 +1,70 @@
+🔐 Project Overview
+The Password Manager is a CRUD-based web application built with HTML, CSS, and JavaScript. It allows users to securely manage website credentials using browser localStorage.
+
+This project focuses on DOM manipulation, CRUD operations, localStorage, search functionality, clipboard interaction, and responsive UI development.
+
+✨ Features
+Add password
+Edit password
+Delete password
+Copy password
+Search by website
+Password strength indicator
+Show/Hide password
+Save data in localStorage
+Responsive UI
+
+🛠 Technologies Used
+HTML5
+CSS3
+JavaScript (ES6)
+Browser localStorage
+Clipboard API
+
+🧠 Concepts Learned
+HTML
+Semantic structure
+Forms
+Inputs
+Buttons
+Sections
+
+CSS
+Flexbox
+Glassmorphism
+Responsive Design
+Hover Effects
+Animations
+Card Layout
+
+JavaScript
+DOM Manipulation
+CRUD Operations
+Event Listeners
+Arrays
+Objects
+Search & Filter
+localStorage
+Clipboard API
+Dynamic Rendering
+
+🔄 Project Flow
+User enters details
+        ↓
+Validate Input
+        ↓
+Create Object
+        ↓
+Save into Array
+        ↓
+Save into localStorage
+        ↓
+Display Cards
+        ↓
+Edit / Delete / Copy
+        ↓
+Search & Filter
+
+👨‍💻 Author
+Vishal Mishra
+Frontend Developer Journey 🚀

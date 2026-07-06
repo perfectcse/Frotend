@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Manager 🔐</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>🔐 Password Manager</h1>
+        <p>Store and manage your passwords securely.</p>
+    </header>
+
+    <section class="form-section">
+
+        <input
+            type="text"
+            id="website"
+            placeholder="Website Name"
+        >
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Username / Email"
+        >
+
+        <div class="password-box">
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+            >
+
+            <button id="togglePassword">
+                👁
+            </button>
+
+        </div>
+
+        <div class="strength">
+            <div id="strengthBar"></div>
+        </div>
+
+        <button id="saveBtn">
+            Save Password
+        </button>
+
+    </section>
+
+    <section class="search-section">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search website..."
+        >
+
+    </section>
+
+    <section>
+
+        <h2>
+            Saved Passwords
+            (<span id="count">0</span>)
+        </h2>
+
+        <div id="passwordList">
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
