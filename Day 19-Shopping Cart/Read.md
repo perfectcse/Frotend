@@ -6,7 +6,7 @@ A modern and responsive **Shopping Cart Web Application** built using **HTML, CS
 
 ## 🚀 Live Demo
 
-🔗 **Live Website:** https://your-netlify-link.netlify.app
+🔗 **Live Website:** https://commerceprojectcart.netlify.app/
 
 🔗 **GitHub Repository:** https://github.com/perfectcse
 
