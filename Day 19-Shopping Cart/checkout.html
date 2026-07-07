@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Shopping Cart</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="checkout-card">
+
+        <h1>🛒 Checkout</h1>
+        <p>Complete your order by filling in your details.</p>
+
+        <div class="checkout-grid">
+
+            <!-- Customer Details -->
+            <div class="customer-info">
+
+                <h2>Customer Information</h2>
+
+                <input type="text" id="name" placeholder="Full Name">
+
+                <input type="email" id="email" placeholder="Email Address">
+
+                <input type="tel" id="phone" placeholder="Phone Number">
+
+                <textarea
+                    id="address"
+                    placeholder="Full Address"
+                    rows="4"
+                ></textarea>
+
+                <div class="row">
+
+                    <input type="text" id="city" placeholder="City">
+
+                    <input type="text" id="state" placeholder="State">
+
+                </div>
+
+                <input type="text" id="pincode" placeholder="PIN Code">
+
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+
+                <h2>Order Summary</h2>
+
+                <div id="summaryItems"></div>
+
+                <hr>
+
+                <div class="summary-row">
+                    <span>Total Items</span>
+                    <span id="totalItems">0</span>
+                </div>
+
+                <div class="summary-row total">
+                    <span>Total Amount</span>
+                    <span>₹<span id="totalAmount">0</span></span>
+                </div>
+
+                <button id="placeOrder">
+                    Place Order
+                </button>
+
+                <button id="backBtn" class="secondary">
+                    ← Back to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="checkout.js"></script>
+
+</body>
+</html>

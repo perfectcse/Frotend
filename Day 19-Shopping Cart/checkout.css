@@ -1,0 +1,337 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+/* ===========================
+   BODY
+=========================== */
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container{
+    width:100%;
+    max-width:1200px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.checkout-card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+    color:white;
+
+}
+
+.checkout-card h1{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+    font-size:38px;
+
+}
+
+.checkout-card>p{
+
+    text-align:center;
+
+    color:#cbd5e1;
+
+    margin-bottom:30px;
+
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.checkout-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:30px;
+
+}
+
+/* ===========================
+   CUSTOMER FORM
+=========================== */
+
+.customer-info{
+
+    background:#1e293b;
+
+    padding:25px;
+
+    border-radius:15px;
+
+}
+
+.customer-info h2{
+
+    margin-bottom:20px;
+
+}
+
+.customer-info input,
+.customer-info textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+}
+
+.customer-info textarea{
+
+    resize:none;
+
+}
+
+/* Row */
+
+.row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+}
+
+/* ===========================
+   ORDER SUMMARY
+=========================== */
+
+.order-summary{
+
+    background:#1e293b;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    position:sticky;
+
+    top:20px;
+
+}
+
+.order-summary h2{
+
+    margin-bottom:20px;
+
+}
+
+#summaryItems{
+
+    max-height:280px;
+
+    overflow-y:auto;
+
+    margin-bottom:20px;
+
+}
+
+/* Item */
+
+.summary-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+    padding-bottom:10px;
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+
+.summary-item h4{
+
+    font-size:15px;
+
+}
+
+.summary-item p{
+
+    color:#cbd5e1;
+
+    font-size:14px;
+
+}
+
+/* Summary */
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:15px 0;
+
+}
+
+.total{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#38bdf8;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+#placeOrder{
+
+    background:#22c55e;
+
+    color:white;
+
+    margin-top:20px;
+
+}
+
+#placeOrder:hover{
+
+    background:#16a34a;
+
+    transform:translateY(-2px);
+
+}
+
+.secondary{
+
+    background:#475569;
+
+    color:white;
+
+    margin-top:12px;
+
+}
+
+.secondary:hover{
+
+    background:#334155;
+
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#3b82f6;
+
+    border-radius:10px;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+.checkout-grid{
+
+grid-template-columns:1fr;
+
+}
+
+body{
+
+padding:20px;
+
+}
+
+.checkout-card{
+
+padding:20px;
+
+}
+
+.row{
+
+grid-template-columns:1fr;
+
+}
+
+}
