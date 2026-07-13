@@ -1,0 +1,685 @@
+# 🧠 JavaScript Quiz App
+
+A modern, interactive, and responsive **JavaScript Quiz Application** built using **HTML, CSS, and Vanilla JavaScript**.
+
+The application displays multiple-choice JavaScript questions dynamically, checks correct and incorrect answers, tracks the live score, updates a progress bar, calculates the final percentage, and allows users to restart the quiz.
+
+This project was built as part of my **Frontend Development Journey — Day 22** to strengthen JavaScript fundamentals, DOM manipulation, event handling, arrays of objects, conditional logic, and basic state management.
+
+---
+
+## 🚀 Live Demo
+
+🔗 **Live Website:** https://mcqjs.netlify.app/
+
+🔗 **GitHub Profile:** https://github.com/perfectcse
+
+---
+
+## ✨ Features
+
+- 🧠 10 JavaScript multiple-choice questions
+- ❓ Dynamic question rendering
+- 🔘 Dynamically generated answer buttons
+- 🟢 Correct answer feedback
+- 🔴 Wrong answer feedback
+- 🔒 Disable answers after selection
+- 👀 Automatically reveal the correct answer
+- 🏆 Live score tracking
+- 🔢 Current question number
+- 📊 Dynamic progress bar
+- ➡️ Next Question functionality
+- 🎉 Final result screen
+- 📈 Percentage calculation
+- 💬 Performance-based result message
+- 🔄 Restart Quiz functionality
+- 📱 Fully responsive design
+
+---
+
+## 🆕 New Concepts and Features Learned
+
+Compared with my previous projects, this Quiz App introduced several new concepts.
+
+### 1. Arrays of Nested Objects
+
+The quiz questions are stored inside an array of objects. Each question object also contains an array of answer objects.
+
+Example:
+
+```javascript
+const questions = [
+    {
+        question: "Which keyword declares a block-scoped variable?",
+
+        answers: [
+            { text: "var", correct: false },
+            { text: "let", correct: true },
+            { text: "function", correct: false },
+            { text: "define", correct: false }
+        ]
+    }
+];
+```
+
+This helped me understand how real applications organize structured data.
+
+---
+
+### 2. Application State Management
+
+The application uses variables to track the current state of the quiz:
+
+```javascript
+let currentQuestionIndex = 0;
+let score = 0;
+```
+
+- `currentQuestionIndex` tracks the current question.
+- `score` stores the number of correct answers.
+
+This introduced the basic concept of **state management**.
+
+---
+
+### 3. Dynamic Question Rendering
+
+Questions are not hardcoded into the HTML.
+
+JavaScript reads the current question from the `questions` array and displays it dynamically:
+
+```javascript
+const currentQuestion =
+    questions[currentQuestionIndex];
+
+questionElement.textContent =
+    currentQuestion.question;
+```
+
+---
+
+### 4. Dynamic Button Creation
+
+Answer buttons are created dynamically using JavaScript:
+
+```javascript
+const button =
+    document.createElement("button");
+
+button.textContent = answer.text;
+
+button.classList.add("answer-btn");
+```
+
+This strengthened my understanding of DOM manipulation.
+
+---
+
+### 5. Using `dataset`
+
+Each answer button stores whether its answer is correct:
+
+```javascript
+button.dataset.correct =
+    answer.correct;
+```
+
+Later, the value is checked when the user selects an answer:
+
+```javascript
+const isCorrect =
+    selectedButton.dataset.correct === "true";
+```
+
+This project helped me understand how custom `data-*` attributes can store information directly on HTML elements.
+
+---
+
+### 6. Correct and Wrong Answer Feedback
+
+When a user selects an answer:
+
+- Correct answer → Green 🟢
+- Wrong answer → Red 🔴
+- Correct option is automatically revealed.
+- All answer buttons become disabled.
+
+Example:
+
+```javascript
+if (isCorrect) {
+
+    selectedButton.classList.add("correct");
+
+    score++;
+
+} else {
+
+    selectedButton.classList.add("wrong");
+
+}
+```
+
+---
+
+### 7. Dynamic Progress Bar
+
+The progress bar changes according to the current question:
+
+```javascript
+const progress =
+    ((currentQuestionIndex + 1) / questions.length) * 100;
+
+progressBar.style.width =
+    `${progress}%`;
+```
+
+For example:
+
+```text
+Question 1 of 10  →  10%
+Question 5 of 10  →  50%
+Question 10 of 10 → 100%
+```
+
+---
+
+### 8. Percentage Calculation
+
+At the end of the quiz, the final percentage is calculated:
+
+```javascript
+const percentage = Math.round(
+
+    (score / questions.length) * 100
+
+);
+```
+
+Example:
+
+```text
+Score: 7 / 10
+Percentage: 70%
+```
+
+---
+
+### 9. Performance-Based Messages
+
+The application displays different messages according to the final percentage.
+
+```text
+100%       → 🏆 Perfect score!
+80%–99%    → 🌟 Excellent!
+60%–79%    → 👍 Good job!
+40%–59%    → 📚 Good attempt!
+Below 40%  → 💪 Keep learning!
+```
+
+This strengthened my understanding of `if...else if...else` conditions.
+
+---
+
+### 10. Restart Functionality
+
+The quiz can restart without refreshing the browser.
+
+The application resets:
+
+```javascript
+currentQuestionIndex = 0;
+score = 0;
+```
+
+Then it starts displaying questions again.
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- Vanilla JavaScript (ES6)
+- DOM API
+
+No frameworks or external libraries were required.
+
+---
+
+## 📁 Project Structure
+
+```text
+Day-22-Quiz-App/
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+```
+
+---
+
+## 🔄 Application Flow
+
+```text
+Start Quiz
+    │
+    ▼
+Display Current Question
+    │
+    ▼
+Create Answer Buttons Dynamically
+    │
+    ▼
+User Selects an Answer
+    │
+    ▼
+Check Correct or Wrong
+    │
+    ├───────────────┐
+    ▼               ▼
+ Correct           Wrong
+ Score + 1       Show Red
+    │               │
+    └───────┬───────┘
+            ▼
+Reveal Correct Answer
+            │
+            ▼
+Disable All Answer Buttons
+            │
+            ▼
+Show Next Question Button
+            │
+            ▼
+Are More Questions Available?
+       │                 │
+      Yes                No
+       │                 │
+       ▼                 ▼
+Next Question      Show Final Result
+                         │
+                         ▼
+                  Calculate Percentage
+                         │
+                         ▼
+                  Show Result Message
+                         │
+                         ▼
+                     Restart Quiz
+```
+
+---
+
+## 🧠 JavaScript Concepts Learned
+
+### Core JavaScript
+
+- Variables
+- `const` and `let`
+- Arrays
+- Objects
+- Nested arrays and objects
+- Functions
+- Arrow functions
+- Conditional statements
+- Template literals
+- Boolean values
+- Mathematical calculations
+
+### DOM Manipulation
+
+- `getElementById()`
+- `createElement()`
+- `textContent`
+- `appendChild()`
+- `removeChild()`
+- `firstChild`
+- `children`
+- `classList.add()`
+- `classList.remove()`
+- `dataset`
+- Dynamic CSS style updates
+
+### Event Handling
+
+- `addEventListener()`
+- `click` events
+- `event.target`
+
+### Array Concepts
+
+- `forEach()`
+- `Array.from()`
+
+### State Management
+
+- Current question index
+- Current score
+- Quiz progression
+- Resetting application state
+
+---
+
+## 🔍 Important Functions
+
+### `startQuiz()`
+
+Resets the score and question index and starts the quiz.
+
+```javascript
+function startQuiz() {
+
+    currentQuestionIndex = 0;
+
+    score = 0;
+
+    showQuestion();
+}
+```
+
+---
+
+### `showQuestion()`
+
+Displays the current question and dynamically creates its answer buttons.
+
+---
+
+### `resetState()`
+
+Removes previous answer buttons and hides the Next button before showing a new question.
+
+---
+
+### `selectAnswer()`
+
+Checks whether the selected answer is correct or wrong, updates the score, reveals the correct answer, and disables all options.
+
+---
+
+### `showResult()`
+
+Calculates the final percentage and displays the score and performance message.
+
+---
+
+## 🧪 Testing Checklist
+
+### Initial Load
+
+- [ ] App opens without errors.
+- [ ] Question 1 appears.
+- [ ] Score starts at 0.
+- [ ] Progress bar displays correctly.
+- [ ] Four answer options appear.
+
+### Correct Answer
+
+- [ ] Select the correct answer.
+- [ ] Selected button becomes green.
+- [ ] Score increases by 1.
+- [ ] Next button appears.
+
+### Wrong Answer
+
+- [ ] Select an incorrect answer.
+- [ ] Selected answer becomes red.
+- [ ] Correct answer becomes green.
+- [ ] Score does not increase.
+
+### Answer Locking
+
+- [ ] Select one answer.
+- [ ] Verify all answer buttons become disabled.
+- [ ] Verify the user cannot answer the same question twice.
+
+### Next Question
+
+- [ ] Click the Next Question button.
+- [ ] Previous answers disappear.
+- [ ] Next question appears.
+- [ ] Question number updates.
+- [ ] Progress bar updates.
+
+### Final Result
+
+- [ ] Complete all 10 questions.
+- [ ] Verify final score.
+- [ ] Verify percentage calculation.
+- [ ] Verify performance message.
+
+### Restart Quiz
+
+- [ ] Click Restart Quiz.
+- [ ] Question 1 appears again.
+- [ ] Score resets to 0.
+- [ ] Result screen disappears.
+- [ ] Quiz works correctly again.
+
+### Responsive Design
+
+- [ ] Test on desktop.
+- [ ] Test on tablet.
+- [ ] Test on mobile.
+- [ ] Verify answer buttons remain readable.
+
+### Console
+
+- [ ] Open browser DevTools.
+- [ ] Check the Console.
+- [ ] Verify there are no JavaScript errors.
+
+---
+
+## 🎤 Interview Questions and Answers
+
+### 1. How are questions stored in this project?
+
+Questions are stored in an array of objects. Each question object contains a question string and an array of answer objects.
+
+---
+
+### 2. What is a nested object or nested array?
+
+A nested structure means an object or array exists inside another object or array. In this project, the `answers` array exists inside each question object.
+
+---
+
+### 3. Why is `currentQuestionIndex` required?
+
+It tracks which question is currently being displayed.
+
+For example:
+
+```text
+0 → First Question
+1 → Second Question
+2 → Third Question
+```
+
+JavaScript arrays use zero-based indexing.
+
+---
+
+### 4. What is state management in this project?
+
+State management means tracking the application's changing data.
+
+In this project:
+
+```javascript
+let currentQuestionIndex = 0;
+let score = 0;
+```
+
+These variables represent the current state of the quiz.
+
+---
+
+### 5. What is `event.target`?
+
+`event.target` returns the HTML element that triggered the event.
+
+In this application, it identifies the answer button clicked by the user.
+
+---
+
+### 6. What is `dataset`?
+
+`dataset` allows JavaScript to access custom `data-*` attributes stored on HTML elements.
+
+In this project:
+
+```javascript
+button.dataset.correct = answer.correct;
+```
+
+It stores whether an answer is correct.
+
+---
+
+### 7. Why do we compare with the string `"true"`?
+
+Values stored through HTML `data-*` attributes are read as strings.
+
+Therefore:
+
+```javascript
+selectedButton.dataset.correct === "true"
+```
+
+checks whether the stored value represents a correct answer.
+
+---
+
+### 8. Why do we disable all answer buttons?
+
+This prevents users from answering the same question multiple times and increasing their score incorrectly.
+
+---
+
+### 9. How is the percentage calculated?
+
+```javascript
+(score / questions.length) * 100
+```
+
+For example:
+
+```text
+Score = 8
+Total Questions = 10
+
+(8 / 10) × 100 = 80%
+```
+
+---
+
+### 10. Why use `Math.round()`?
+
+`Math.round()` rounds a decimal number to the nearest integer.
+
+Example:
+
+```javascript
+Math.round(66.67); // 67
+```
+
+---
+
+### 11. What does `forEach()` do?
+
+`forEach()` executes a function once for every element in an array.
+
+In this project, it is used to create an answer button for every answer.
+
+---
+
+### 12. Why use `Array.from()`?
+
+`answerButtons.children` returns an `HTMLCollection`. `Array.from()` converts it into an array so array methods such as `forEach()` can be used easily.
+
+---
+
+### 13. How does the progress bar work?
+
+The app calculates the current progress percentage and dynamically changes the CSS width of the progress bar.
+
+---
+
+### 14. How does the Restart button work?
+
+It calls `startQuiz()`, which resets the current question index and score before displaying the first question again.
+
+---
+
+### 15. Explain the complete Quiz App flow.
+
+The application loads a question from an array, dynamically creates answer buttons, checks the selected answer, updates the score, moves to the next question, and finally calculates the user's score and percentage.
+
+---
+
+## 🚀 Future Improvements
+
+The current version is intentionally simple and focused on learning JavaScript fundamentals.
+
+Future improvements could include:
+
+- ⏱️ Timer for each question
+- 🎲 Random question order
+- 🔀 Random answer order
+- 🏷️ Multiple quiz categories
+- 📊 Difficulty levels
+- 💾 Save high score with localStorage
+- 🔊 Sound effects
+- 🌙 Dark mode
+- 📱 Better mobile animations
+- 🧩 Question explanations after answering
+- ⏭️ Skip question feature
+- 🏆 Leaderboard
+- 🌐 Fetch questions from an external API
+- ⚛️ React version
+- 🖥️ Node.js backend
+- 🗄️ MongoDB database
+- 🔐 User authentication
+
+---
+
+## 📈 What Made Day 22 Different?
+
+Previous projects focused heavily on CRUD operations and localStorage.
+
+This project introduced a different type of frontend logic:
+
+- Managing application state
+- Moving sequentially through data
+- Nested arrays and objects
+- Dynamic question rendering
+- Checking user answers
+- Providing immediate visual feedback
+- Tracking a live score
+- Calculating percentages
+- Controlling a multi-step application flow
+
+This helped strengthen my understanding of how JavaScript manages an interactive user experience.
+
+---
+
+## 👨‍💻 Author
+
+**Vishal Mishra**
+
+Frontend / MERN Stack Developer
+
+GitHub:  
+https://github.com/perfectcse
+
+---
+
+## ⭐ Support
+
+If you find this project useful, consider giving the repository a ⭐.
+
+Happy Coding! 🚀
