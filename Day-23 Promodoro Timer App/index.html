@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pomodoro Timer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <h1>⏱️ Pomodoro Timer</h1>
+
+        <p>
+            Stay focused. Take breaks. Be productive.
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
+
+    <main class="timer-container">
+
+
+        <div class="timer-card">
+
+
+            <!-- =========================
+                 MODE BUTTONS
+            ========================== -->
+
+            <div class="mode-buttons">
+
+                <button
+                    id="focusBtn"
+                    class="mode-btn active"
+                >
+                    🧠 Focus
+                </button>
+
+
+                <button
+                    id="breakBtn"
+                    class="mode-btn"
+                >
+                    ☕ Short Break
+                </button>
+
+            </div>
+
+
+            <!-- =========================
+                 CURRENT MODE
+            ========================== -->
+
+            <p
+                id="modeText"
+                class="mode-text"
+            >
+                Focus Session
+            </p>
+
+
+            <!-- =========================
+                 TIMER DISPLAY
+            ========================== -->
+
+            <div
+                id="timerDisplay"
+                class="timer-display"
+            >
+                25:00
+            </div>
+
+
+            <!-- =========================
+                 TIMER MESSAGE
+            ========================== -->
+
+            <p
+                id="timerMessage"
+                class="timer-message"
+            >
+                Ready to focus? 🚀
+            </p>
+
+
+            <!-- =========================
+                 CONTROL BUTTONS
+            ========================== -->
+
+            <div class="controls">
+
+                <button
+                    id="startBtn"
+                    class="control-btn start-btn"
+                >
+                    ▶ Start
+                </button>
+
+
+                <button
+                    id="pauseBtn"
+                    class="control-btn pause-btn"
+                >
+                    ⏸ Pause
+                </button>
+
+
+                <button
+                    id="resetBtn"
+                    class="control-btn reset-btn"
+                >
+                    🔄 Reset
+                </button>
+
+            </div>
+
+
+            <!-- =========================
+                 SESSION INFORMATION
+            ========================== -->
+
+            <div class="session-info">
+
+                <p>
+                    Current Mode:
+                    <strong id="currentMode">
+                        Focus
+                    </strong>
+                </p>
+
+                <p>
+                    Completed Focus Sessions:
+                    <strong id="sessionCount">
+                        0
+                    </strong>
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Pomodoro Timer | Built by Vishal 🚀
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

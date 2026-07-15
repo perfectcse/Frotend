@@ -1,0 +1,966 @@
+# ⏱️ Pomodoro Timer App
+
+A simple, modern, and responsive **Pomodoro Timer Application** built using **HTML, CSS, and Vanilla JavaScript**.
+
+The application helps users stay productive by working in focused sessions and taking short breaks. It includes a **25-minute Focus Mode**, a **5-minute Short Break Mode**, Start, Pause, Reset functionality, dynamic status messages, and completed focus-session tracking.
+
+This project was built as part of my **Frontend Development Journey — Day 23** to strengthen my understanding of JavaScript timers, application state, time formatting, DOM manipulation, event handling, and interval management.
+
+---
+
+## 🚀 Live Demo
+
+🔗 **Live Website:**  https://timersetcheck.netlify.app/
+
+---
+
+## ✨ Features
+
+- 🧠 25-minute Focus Mode
+- ☕ 5-minute Short Break Mode
+- ▶️ Start Timer
+- ⏸️ Pause Timer
+- 🔄 Reset Timer
+- ▶️ Resume timer after pausing
+- 🔀 Switch between Focus and Break modes
+- ⏱️ Live countdown display
+- 🎯 Automatic timer completion detection
+- 🎉 Focus session completion message
+- 🔢 Completed focus-session counter
+- 💬 Dynamic timer status messages
+- 🔒 Protection against multiple intervals
+- 🎨 Active mode button styling
+- 📱 Fully responsive design
+
+---
+
+## 🆕 New Concepts Learned
+
+Compared with my previous frontend projects, this Pomodoro Timer introduced several important new JavaScript concepts.
+
+### 1. `setInterval()`
+
+The `setInterval()` method repeatedly executes a function after a specified time interval.
+
+In this project, the timer decreases every 1000 milliseconds, which equals 1 second.
+
+```javascript
+timerInterval = setInterval(function () {
+
+    timeLeft--;
+
+    updateDisplay();
+
+}, 1000);
+```
+
+Flow:
+
+```text
+25:00
+  ↓
+24:59
+  ↓
+24:58
+  ↓
+24:57
+```
+
+---
+
+### 2. `clearInterval()`
+
+The `clearInterval()` method stops an interval created using `setInterval()`.
+
+```javascript
+clearInterval(timerInterval);
+```
+
+It is used when:
+
+- The user pauses the timer
+- The user resets the timer
+- The user switches modes
+- The timer reaches `00:00`
+
+---
+
+### 3. Interval ID Management
+
+The application stores the active interval ID in a variable:
+
+```javascript
+let timerInterval = null;
+```
+
+When the timer starts:
+
+```javascript
+timerInterval = setInterval(function () {
+
+    timeLeft--;
+
+    updateDisplay();
+
+}, 1000);
+```
+
+When the timer stops:
+
+```javascript
+clearInterval(timerInterval);
+
+timerInterval = null;
+```
+
+This helps control whether a timer is currently running.
+
+---
+
+### 4. Preventing Multiple Intervals
+
+Without protection, clicking the Start button multiple times could create multiple intervals and make the countdown run too quickly.
+
+For example:
+
+```text
+1 Start click  → decreases once every second
+2 Start clicks → decreases twice every second ❌
+3 Start clicks → decreases three times every second ❌
+```
+
+This condition prevents that problem:
+
+```javascript
+if (timerInterval !== null) {
+
+    return;
+
+}
+```
+
+Only one timer can run at a time.
+
+---
+
+### 5. Time Conversion
+
+The timer stores its remaining time in seconds.
+
+For example:
+
+```javascript
+const FOCUS_TIME = 25 * 60;
+```
+
+This means:
+
+```text
+25 minutes × 60 seconds = 1500 seconds
+```
+
+Similarly:
+
+```javascript
+const BREAK_TIME = 5 * 60;
+```
+
+means:
+
+```text
+5 minutes × 60 seconds = 300 seconds
+```
+
+---
+
+### 6. Converting Seconds into Minutes
+
+The application converts total seconds into minutes using `Math.floor()`:
+
+```javascript
+const minutes = Math.floor(seconds / 60);
+```
+
+The remaining seconds are calculated using the remainder operator `%`:
+
+```javascript
+const remainingSeconds = seconds % 60;
+```
+
+Example:
+
+```text
+125 seconds
+
+Minutes:
+Math.floor(125 / 60) = 2
+
+Remaining seconds:
+125 % 60 = 5
+
+Result:
+02:05
+```
+
+---
+
+### 7. `padStart()`
+
+The `padStart()` method ensures that minutes and seconds always display two digits.
+
+```javascript
+String(minutes).padStart(2, "0");
+```
+
+Examples:
+
+```text
+5  → 05
+9  → 09
+12 → 12
+```
+
+Without `padStart()`:
+
+```text
+5:3 ❌
+```
+
+With `padStart()`:
+
+```text
+05:03 ✅
+```
+
+---
+
+### 8. Application State
+
+The application uses variables to track its current state:
+
+```javascript
+let timeLeft = FOCUS_TIME;
+
+let timerInterval = null;
+
+let mode = "focus";
+
+let completedSessions = 0;
+```
+
+Each variable has a specific responsibility:
+
+| Variable | Purpose |
+|---|---|
+| `timeLeft` | Remaining time in seconds |
+| `timerInterval` | Stores the active interval ID |
+| `mode` | Tracks Focus or Break mode |
+| `completedSessions` | Counts completed focus sessions |
+
+This is a simple example of **state management** in JavaScript.
+
+---
+
+### 9. Mode Switching
+
+The application has two modes:
+
+```text
+🧠 Focus Mode → 25:00
+☕ Break Mode → 05:00
+```
+
+When switching modes, JavaScript:
+
+1. Stops the current interval.
+2. Updates the `mode` variable.
+3. Changes `timeLeft`.
+4. Updates the active button.
+5. Updates the mode text.
+6. Updates the timer display.
+
+Example:
+
+```javascript
+mode = "focus";
+
+timeLeft = FOCUS_TIME;
+```
+
+Or:
+
+```javascript
+mode = "break";
+
+timeLeft = BREAK_TIME;
+```
+
+---
+
+### 10. Dynamic CSS Classes
+
+JavaScript dynamically changes the active mode button:
+
+```javascript
+focusBtn.classList.add("active");
+
+breakBtn.classList.remove("active");
+```
+
+For Break Mode:
+
+```javascript
+breakBtn.classList.add("active");
+
+focusBtn.classList.remove("active");
+```
+
+This provides visual feedback about the currently selected mode.
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- Vanilla JavaScript (ES6)
+- DOM API
+- Browser Timer APIs
+
+No external frameworks or libraries were required.
+
+---
+
+## 📁 Project Structure
+
+```text
+Day-23-Pomodoro-Timer/
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+```
+
+---
+
+## 🔄 Complete Application Flow
+
+```text
+Application Opens
+        │
+        ▼
+Focus Mode Selected
+Timer = 25:00
+        │
+        ▼
+User Clicks Start
+        │
+        ▼
+startTimer()
+        │
+        ▼
+Check if Timer Already Running
+        │
+        ├── Yes → Return
+        │
+        └── No
+             │
+             ▼
+      setInterval() Starts
+             │
+             ▼
+     Decrease timeLeft by 1
+             │
+             ▼
+       Update Timer Display
+             │
+             ▼
+       Has Timer Reached 0?
+          │              │
+         No             Yes
+          │              │
+          ▼              ▼
+      Continue      completeTimer()
+                         │
+                         ▼
+                 Stop the Interval
+                         │
+                         ▼
+               Is Current Mode Focus?
+                    │          │
+                   Yes         No
+                    │          │
+                    ▼          ▼
+              Increase      Show Break
+              Sessions      Completion
+                    │          Message
+                    ▼
+             Show Completion
+                 Message
+```
+
+---
+
+## 🎮 Button Functionality
+
+### ▶️ Start Button
+
+Calls:
+
+```javascript
+startTimer();
+```
+
+It starts the countdown using `setInterval()`.
+
+---
+
+### ⏸️ Pause Button
+
+Calls:
+
+```javascript
+pauseTimer();
+```
+
+It stops the active interval but keeps the remaining time unchanged.
+
+This means the timer can continue from the same position when Start is clicked again.
+
+---
+
+### 🔄 Reset Button
+
+Calls:
+
+```javascript
+resetTimer();
+```
+
+It stops the timer and resets the time according to the current mode:
+
+```text
+Focus Mode → 25:00
+Break Mode → 05:00
+```
+
+---
+
+### 🧠 Focus Button
+
+Calls:
+
+```javascript
+switchToFocus();
+```
+
+It:
+
+- Stops the current timer
+- Changes mode to Focus
+- Resets time to 25 minutes
+- Updates the UI
+
+---
+
+### ☕ Short Break Button
+
+Calls:
+
+```javascript
+switchToBreak();
+```
+
+It:
+
+- Stops the current timer
+- Changes mode to Break
+- Resets time to 5 minutes
+- Updates the UI
+
+---
+
+## 🧠 Important Functions
+
+### `formatTime(seconds)`
+
+Converts total seconds into `MM:SS` format.
+
+Example:
+
+```text
+1500 seconds → 25:00
+300 seconds  → 05:00
+65 seconds   → 01:05
+```
+
+---
+
+### `updateDisplay()`
+
+Updates the timer text displayed on the page.
+
+```javascript
+function updateDisplay() {
+
+    timerDisplay.textContent = formatTime(timeLeft);
+
+}
+```
+
+---
+
+### `startTimer()`
+
+Starts the countdown and prevents multiple intervals from running simultaneously.
+
+---
+
+### `pauseTimer()`
+
+Stops the active interval while preserving the current remaining time.
+
+---
+
+### `resetTimer()`
+
+Stops the timer and restores the default time for the currently selected mode.
+
+---
+
+### `completeTimer()`
+
+Runs when the countdown reaches zero.
+
+If the current mode is Focus, it also increases the completed focus-session count.
+
+---
+
+### `switchToFocus()`
+
+Changes the application to Focus Mode and resets the timer to 25 minutes.
+
+---
+
+### `switchToBreak()`
+
+Changes the application to Short Break Mode and resets the timer to 5 minutes.
+
+---
+
+## 🧪 Testing Checklist
+
+### Initial Load
+
+- [ ] App loads without errors.
+- [ ] Focus Mode is active.
+- [ ] Timer displays `25:00`.
+- [ ] Current Mode displays `Focus`.
+- [ ] Completed Sessions displays `0`.
+- [ ] Message displays `Ready to focus? 🚀`.
+
+### Start Timer
+
+- [ ] Click Start.
+- [ ] Timer starts counting down.
+- [ ] `25:00` changes to `24:59`.
+- [ ] Timer continues decreasing every second.
+
+### Multiple Start Clicks
+
+- [ ] Click Start multiple times.
+- [ ] Verify the timer still decreases only once per second.
+- [ ] Verify multiple intervals are not created.
+
+### Pause Timer
+
+- [ ] Start the timer.
+- [ ] Wait a few seconds.
+- [ ] Click Pause.
+- [ ] Verify countdown stops.
+- [ ] Verify the remaining time stays unchanged.
+
+### Resume Timer
+
+- [ ] Pause the timer.
+- [ ] Click Start again.
+- [ ] Verify countdown continues from the paused time.
+
+### Reset Timer
+
+- [ ] Start the Focus timer.
+- [ ] Wait a few seconds.
+- [ ] Click Reset.
+- [ ] Verify timer returns to `25:00`.
+
+### Break Mode
+
+- [ ] Click Short Break.
+- [ ] Verify timer changes to `05:00`.
+- [ ] Verify active button changes.
+- [ ] Verify Current Mode changes to `Short Break`.
+- [ ] Start, pause, and reset the Break timer.
+
+### Focus Mode
+
+- [ ] Switch from Break to Focus.
+- [ ] Verify timer changes to `25:00`.
+- [ ] Verify active button changes.
+- [ ] Verify Current Mode changes to `Focus`.
+
+### Timer Completion
+
+For faster testing, temporarily change:
+
+```javascript
+const FOCUS_TIME = 10;
+
+const BREAK_TIME = 5;
+```
+
+Then verify:
+
+- [ ] Focus timer reaches `00:00`.
+- [ ] Timer stops automatically.
+- [ ] Focus completion message appears.
+- [ ] Completed Sessions increases by 1.
+- [ ] Break timer reaches `00:00`.
+- [ ] Break completion message appears.
+- [ ] Focus session count does not increase after a break.
+
+After testing, restore:
+
+```javascript
+const FOCUS_TIME = 25 * 60;
+
+const BREAK_TIME = 5 * 60;
+```
+
+### Responsive Design
+
+- [ ] Test on desktop.
+- [ ] Test on tablet.
+- [ ] Test on mobile.
+- [ ] Verify buttons remain accessible.
+- [ ] Verify timer text fits on small screens.
+
+### Console Testing
+
+- [ ] Open Browser DevTools.
+- [ ] Go to the Console tab.
+- [ ] Verify there are no JavaScript errors.
+
+---
+
+## 📚 JavaScript Concepts Learned
+
+### Core JavaScript
+
+- Variables
+- Constants
+- Functions
+- Conditional statements
+- Ternary operator
+- Template literals
+- Mathematical calculations
+- Modulus operator `%`
+- `Math.floor()`
+- String conversion
+- `padStart()`
+
+### Timer APIs
+
+- `setInterval()`
+- `clearInterval()`
+- Interval IDs
+
+### DOM Manipulation
+
+- `getElementById()`
+- `textContent`
+- `classList.add()`
+- `classList.remove()`
+
+### Event Handling
+
+- `addEventListener()`
+- Click events
+
+### Application State
+
+- Tracking remaining time
+- Tracking current mode
+- Tracking timer status
+- Tracking completed sessions
+
+---
+
+## 🎤 Interview Questions and Answers
+
+### 1. What is `setInterval()`?
+
+`setInterval()` repeatedly executes a function after a specified time interval.
+
+Example:
+
+```javascript
+setInterval(function () {
+
+    console.log("Hello");
+
+}, 1000);
+```
+
+This prints `Hello` every second.
+
+---
+
+### 2. What is `clearInterval()`?
+
+`clearInterval()` stops an interval created by `setInterval()`.
+
+```javascript
+clearInterval(timerInterval);
+```
+
+---
+
+### 3. Why do we store the interval ID?
+
+When `setInterval()` is called, it returns an interval ID. We store that ID so we can later stop the correct interval using `clearInterval()`.
+
+---
+
+### 4. Why is `timerInterval` initially `null`?
+
+`null` indicates that no timer is currently running.
+
+```javascript
+let timerInterval = null;
+```
+
+When the timer starts, it stores the interval ID. When the timer stops, it becomes `null` again.
+
+---
+
+### 5. How do you prevent multiple intervals?
+
+Before creating a new interval, check whether one is already active:
+
+```javascript
+if (timerInterval !== null) {
+
+    return;
+
+}
+```
+
+This prevents the timer from speeding up when the Start button is clicked repeatedly.
+
+---
+
+### 6. Why is time stored in seconds?
+
+Storing the total time as seconds makes countdown calculations simple.
+
+We can decrease the timer with:
+
+```javascript
+timeLeft--;
+```
+
+Then convert it into minutes and seconds only for display.
+
+---
+
+### 7. How do you convert seconds into minutes?
+
+```javascript
+const minutes = Math.floor(seconds / 60);
+```
+
+For example:
+
+```text
+125 / 60 = 2.083...
+
+Math.floor(2.083...) = 2 minutes
+```
+
+---
+
+### 8. What does the `%` operator do in this project?
+
+The remainder operator returns the seconds left after complete minutes are calculated.
+
+```javascript
+const remainingSeconds = seconds % 60;
+```
+
+Example:
+
+```text
+125 % 60 = 5
+```
+
+Therefore:
+
+```text
+125 seconds = 02:05
+```
+
+---
+
+### 9. Why use `padStart()`?
+
+`padStart()` ensures the timer always displays two digits.
+
+```javascript
+String(5).padStart(2, "0");
+```
+
+Result:
+
+```text
+05
+```
+
+---
+
+### 10. What is application state in this project?
+
+Application state refers to data that changes while the app is running.
+
+Examples:
+
+```javascript
+let timeLeft = FOCUS_TIME;
+
+let timerInterval = null;
+
+let mode = "focus";
+
+let completedSessions = 0;
+```
+
+---
+
+### 11. How does Pause differ from Reset?
+
+Pause stops the countdown but preserves the remaining time.
+
+Reset stops the countdown and restores the default duration of the current mode.
+
+---
+
+### 12. What happens when the user switches modes?
+
+The current interval is stopped, the mode changes, the time resets, the active button changes, and the display is updated.
+
+---
+
+### 13. How does the completed-session counter work?
+
+When a Focus timer reaches zero:
+
+```javascript
+completedSessions++;
+```
+
+Then the DOM is updated:
+
+```javascript
+sessionCount.textContent =
+    completedSessions;
+```
+
+Break sessions do not increase this counter.
+
+---
+
+### 14. What is the difference between `setTimeout()` and `setInterval()`?
+
+`setTimeout()` executes a function once after a delay.
+
+`setInterval()` repeatedly executes a function at a fixed interval until it is stopped.
+
+---
+
+### 15. Explain the complete Pomodoro Timer flow.
+
+The application starts in Focus Mode with 25 minutes. When the user clicks Start, `setInterval()` decreases the remaining time every second. Pause stops the interval while keeping the remaining time. Reset restores the default duration. Users can switch between Focus and Break modes, and when a Focus session reaches zero, the completed-session counter increases.
+
+---
+
+## 🚀 Future Improvements
+
+The current version is intentionally simple and focused on understanding JavaScript timer logic.
+
+Future improvements could include:
+
+- 🔔 Browser notifications
+- 🔊 Completion sound
+- 💾 Save completed sessions using localStorage
+- 🌙 Dark mode
+- ⚙️ Custom Focus duration
+- ⚙️ Custom Break duration
+- ☕ Long Break mode
+- 🔁 Automatic Focus/Break switching
+- 📊 Daily productivity statistics
+- 📅 Session history
+- 🎯 Daily focus goals
+- ⏸️ Disable unnecessary buttons based on state
+- 🏆 Productivity streaks
+- ⚛️ React version
+- ☁️ Backend integration
+- 🔐 User authentication
+
+---
+
+## 📈 What Made Day 23 Different?
+
+My previous projects focused on different areas of JavaScript:
+
+```text
+Day 20 → Expense Tracker
+CRUD, reduce(), localStorage
+
+Day 21 → Notes App
+CRUD, search, dynamic rendering
+
+Day 22 → Quiz App
+Nested objects, application state, sequential flow
+
+Day 23 → Pomodoro Timer
+setInterval(), clearInterval(), countdown logic, time formatting
+```
+
+The biggest new concepts in Day 23 were:
+
+- Working with time-based JavaScript
+- Managing active intervals
+- Preventing duplicate intervals
+- Converting seconds into `MM:SS`
+- Switching between application modes
+- Maintaining timer state
+- Tracking completed sessions
+
+---
+
+## 👨‍💻 Author
+
+**Vishal Mishra**
+
+Frontend / MERN Stack Developer
+
+GitHub:  
+Add your GitHub profile link here
+
+---
+
+## ⭐ Support
+
+If you find this project useful, consider giving the GitHub repository a ⭐.
+
+Happy Coding! 🚀
