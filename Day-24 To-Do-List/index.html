@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Drag & Drop Todo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <h1>📋 Drag & Drop Todo</h1>
+
+        <p>Organize your daily tasks efficiently.</p>
+
+    </header>
+
+    <!-- ================= ADD TASK ================= -->
+
+    <section class="task-form">
+
+        <form id="taskForm">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter new task..."
+                required>
+
+            <button type="submit">
+
+                ➕ Add Task
+
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- ================= BOARD ================= -->
+
+    <main class="board">
+
+        <!-- TODO -->
+
+        <section class="column">
+
+            <h2>📋 To Do</h2>
+
+            <div
+                id="todo"
+                class="task-list">
+
+            </div>
+
+        </section>
+
+        <!-- PROGRESS -->
+
+        <section class="column">
+
+            <h2>🚧 In Progress</h2>
+
+            <div
+                id="progress"
+                class="task-list">
+
+            </div>
+
+        </section>
+
+        <!-- DONE -->
+
+        <section class="column">
+
+            <h2>✅ Done</h2>
+
+            <div
+                id="done"
+                class="task-list">
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+
+            © 2026 Drag & Drop Todo | Built by Vishal 🚀
+
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

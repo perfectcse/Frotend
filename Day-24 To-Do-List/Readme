@@ -1,0 +1,489 @@
+# 📋 Drag & Drop Todo App
+
+A modern and responsive **Drag & Drop Todo Application** built using **HTML, CSS, and Vanilla JavaScript**.
+
+This application allows users to create tasks, edit them, delete them, drag tasks between different columns, and save everything using **localStorage**.
+
+This project was built as part of my **Frontend Development Journey – Day 24** to strengthen my understanding of CRUD operations, Drag & Drop API, DOM Manipulation, localStorage, and JavaScript Event Handling.
+
+---
+
+# 🚀 Live Demo
+
+🔗 Live Website: Add Your Netlify Link
+
+🔗 GitHub Repository: Add Your GitHub Repository Link
+
+---
+
+# ✨ Features
+
+- ➕ Add Task
+- ✏️ Edit Task
+- 🗑️ Delete Task
+- 📋 To Do Column
+- 🚧 In Progress Column
+- ✅ Done Column
+- 🖱️ Drag & Drop Tasks
+- 💾 Save using localStorage
+- 📱 Responsive Design
+- 🎨 Trello Style Layout
+
+---
+
+# 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- HTML5 Drag & Drop API
+- LocalStorage API
+
+---
+
+# 📁 Folder Structure
+
+```
+Day-24-Drag-Drop-Todo/
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+```
+
+---
+
+# 🔄 Application Flow
+
+```
+Add Task
+    │
+    ▼
+Create Task Object
+    │
+    ▼
+Save into Array
+    │
+    ▼
+Save into localStorage
+    │
+    ▼
+Render Task
+    │
+    ▼
+Drag Task
+    │
+    ▼
+Drop into New Column
+    │
+    ▼
+Update Status
+    │
+    ▼
+Save Again
+```
+
+---
+
+# 📦 Task Object
+
+```javascript
+{
+    id: Date.now(),
+
+    title: "Learn JavaScript",
+
+    status: "todo"
+}
+```
+
+Possible status values
+
+```
+todo
+progress
+done
+```
+
+---
+
+# 🧠 JavaScript Concepts Learned
+
+## DOM Manipulation
+
+- getElementById()
+- querySelectorAll()
+- createElement()
+- appendChild()
+- classList
+- dataset
+
+---
+
+## Event Handling
+
+- submit
+- click
+- dragstart
+- dragover
+- dragleave
+- drop
+- dragend
+
+---
+
+## Arrays
+
+- push()
+- filter()
+- find()
+- forEach()
+
+---
+
+## Objects
+
+```javascript
+{
+    id,
+    title,
+    status
+}
+```
+
+---
+
+## localStorage
+
+```javascript
+localStorage.setItem()
+
+localStorage.getItem()
+
+JSON.stringify()
+
+JSON.parse()
+```
+
+---
+
+## CRUD
+
+✔ Create
+
+✔ Read
+
+✔ Update
+
+✔ Delete
+
+---
+
+# 🆕 New Features Learned
+
+This project introduced several new JavaScript concepts.
+
+## HTML5 Drag & Drop API
+
+Allows users to drag an element from one location and drop it into another.
+
+Events used:
+
+- dragstart
+- dragover
+- dragleave
+- drop
+- dragend
+
+---
+
+## draggable Attribute
+
+```html
+<div draggable="true">
+```
+
+Makes an HTML element draggable.
+
+---
+
+## dataset
+
+Store extra information inside HTML.
+
+Example
+
+```html
+<div data-id="101">
+```
+
+JavaScript
+
+```javascript
+element.dataset.id
+```
+
+Output
+
+```
+101
+```
+
+---
+
+## Dynamic Status Update
+
+When a task moves,
+
+Before
+
+```
+status = "todo"
+```
+
+After
+
+```
+status = "progress"
+```
+
+No new object is created.
+
+Only the status changes.
+
+---
+
+# 🧪 Testing Checklist
+
+## Add Task
+
+- Enter task
+- Click Add
+- Verify task appears in To Do
+
+---
+
+## Edit Task
+
+- Click Edit
+- Update title
+- Verify task updates
+
+---
+
+## Delete Task
+
+- Click Delete
+- Verify task removed
+
+---
+
+## Drag Task
+
+- Move task from To Do → In Progress
+- Move task from In Progress → Done
+
+---
+
+## Refresh Browser
+
+- Verify all tasks remain
+
+---
+
+## Responsive Design
+
+- Desktop
+- Tablet
+- Mobile
+
+---
+
+## Console
+
+- No JavaScript errors
+
+---
+
+# 🎤 Interview Questions
+
+## 1. What is HTML5 Drag & Drop API?
+
+It allows users to drag HTML elements and drop them into another valid container.
+
+---
+
+## 2. Why use draggable="true"?
+
+It enables dragging for an HTML element.
+
+---
+
+## 3. What is dragstart?
+
+It runs when dragging begins.
+
+---
+
+## 4. What is dragover?
+
+It allows an element to accept dropped items.
+
+Usually:
+
+```javascript
+event.preventDefault();
+```
+
+---
+
+## 5. What is drop?
+
+Runs when the dragged element is released inside another container.
+
+---
+
+## 6. What is dragend?
+
+Runs after dragging finishes.
+
+---
+
+## 7. What is dataset?
+
+It accesses custom HTML data attributes.
+
+Example
+
+```javascript
+element.dataset.id
+```
+
+---
+
+## 8. Why use localStorage?
+
+To save tasks after page refresh.
+
+---
+
+## 9. Why use filter()?
+
+To remove tasks.
+
+---
+
+## 10. Why use find()?
+
+To locate a specific task for editing or moving.
+
+---
+
+## 11. Explain Drag & Drop flow.
+
+```
+dragstart
+
+↓
+
+Store ID
+
+↓
+
+dragover
+
+↓
+
+drop
+
+↓
+
+Update Status
+
+↓
+
+Save
+
+↓
+
+Render Again
+```
+
+---
+
+## 12. What is the difference between dragstart and drop?
+
+dragstart begins dragging.
+
+drop completes the move.
+
+---
+
+## 13. Why call renderTasks() after drop?
+
+To refresh the UI so the task appears in the correct column.
+
+---
+
+## 14. Why use status?
+
+Status determines which column displays the task.
+
+---
+
+## 15. How does Trello work?
+
+Every card has a status.
+
+Dragging changes only the status.
+
+The UI re-renders based on the updated status.
+
+---
+
+# 🚀 Future Improvements
+
+- 📅 Due Dates
+- 🏷 Labels
+- ⭐ Priority
+- 🌙 Dark Mode
+- 🔍 Search Tasks
+- 📊 Task Statistics
+- 👥 User Authentication
+- ☁ Backend Integration
+- MongoDB Database
+- React Version
+
+---
+
+# 🎯 What I Learned
+
+- CRUD Operations
+- Dynamic Rendering
+- DOM Manipulation
+- localStorage
+- Drag & Drop API
+- Dataset
+- Event Handling
+- Responsive Design
+- JavaScript Arrays
+- JavaScript Objects
+- Application State
+
+---
+
+# 👨‍💻 Author
+
+**Vishal Mishra**
+
+Frontend / MERN Stack Developer
+
+GitHub:
+https://github.com/perfectcse
+
+---
+
+⭐ If you like this project, consider giving it a Star.
+
+Happy Coding 🚀
