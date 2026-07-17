@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Roadmap Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="header">
+
+            <h1>🚀 Roadmap Planner</h1>
+
+            <p>Plan • Track • Achieve Your Learning Goals</p>
+
+        </header>
+
+        <!-- ================= TOP BAR ================= -->
+
+        <section class="top-bar">
+
+            <div class="roadmap-form">
+
+                <input
+                    type="text"
+                    id="roadmapInput"
+                    placeholder="Create a new roadmap...">
+
+                <button id="addRoadmapBtn">
+
+                    + Add Roadmap
+
+                </button>
+
+            </div>
+
+            <div class="search-section">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔍 Search Roadmap">
+
+            </div>
+
+        </section>
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section class="dashboard">
+
+            <div class="card">
+
+                <span>📚</span>
+
+                <h3>Total Roadmaps</h3>
+
+                <p id="totalRoadmaps">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <span>✅</span>
+
+                <h3>Completed</h3>
+
+                <p id="completedMilestones">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <span>⏳</span>
+
+                <h3>Pending</h3>
+
+                <p id="pendingMilestones">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <span>📈</span>
+
+                <h3>Overall Progress</h3>
+
+                <p id="overallProgress">0%</p>
+
+            </div>
+
+        </section>
+
+        <!-- ================= ROADMAPS ================= -->
+
+        <section
+            id="roadmapContainer"
+            class="roadmap-container">
+
+        </section>
+
+        <!-- ================= EMPTY STATE ================= -->
+
+        <section
+            id="emptyState"
+            class="empty-state">
+
+            <h2>🚀 No Roadmaps Yet</h2>
+
+            <p>
+
+                Create your first roadmap to start tracking your learning journey.
+
+            </p>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
