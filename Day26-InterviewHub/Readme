@@ -1,0 +1,107 @@
+# 💻 Interview Preparation Hub
+
+A modern and responsive Interview Preparation Hub built using **HTML, CSS, and JavaScript**. The application helps developers prepare for technical interviews by organizing questions into categories, tracking progress, bookmarking important questions, and storing progress with Local Storage.
+
+---
+
+## 🚀 Features
+
+- 📚 Browse interview questions by category
+- 🔍 Search questions instantly
+- ⭐ Bookmark important questions
+- ✅ Mark questions as completed
+- 👁️ Show / Hide answers
+- 📊 Dashboard with preparation statistics
+- 💾 Local Storage support
+- 📱 Fully Responsive Design
+- 🎨 Modern UI with smooth animations
+
+---
+
+## 🛠️ Tech Stack
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Local Storage API
+
+---
+
+## 📂 Project Structure
+
+```
+Interview-Preparation-Hub/
+
+│── index.html
+│── style.css
+│── script.js
+│── questions.js
+│── README.md
+```
+
+---
+
+## 🎯 Categories
+
+- HTML
+- CSS
+- JavaScript
+- React
+- Node.js
+- MongoDB
+- SQL
+- Git
+- HR Interview Questions
+
+---
+
+## ✨ How It Works
+
+1. Browse interview questions.
+2. Search questions by keyword.
+3. Filter questions by category.
+4. Show or hide answers.
+5. Bookmark important questions.
+6. Mark completed questions.
+7. Track your preparation progress through the dashboard.
+8. Progress is automatically saved using Local Storage.
+
+---
+
+## 📚 Learning Outcomes
+
+This project helped me practice:
+
+- DOM Manipulation
+- Dynamic Rendering
+- Event Handling
+- Arrays & Objects
+- Search & Filtering
+- Local Storage
+- Responsive Design
+- Dashboard UI Development
+
+---
+
+## 🔮 Future Improvements
+
+- Difficulty Levels
+- Dark Mode
+- Personal Notes
+- User Authentication
+- Backend Integration
+- MongoDB Database
+- Daily Practice Goals
+- Random Question Generator
+
+---
+
+## 👨‍💻 Author
+
+**Vishal Mishra**
+
+Frontend Developer | MERN Stack Developer
+
+---
+
+⭐ If you like this project, consider giving it a Star on GitHub!
