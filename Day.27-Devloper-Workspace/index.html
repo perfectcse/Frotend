@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Developer Workspace</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         APP
+    ========================== -->
+
+    <div class="app">
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    💻
+                </div>
+
+                <div>
+                    <h2>DevSpace</h2>
+                    <span>Developer Workspace</span>
+                </div>
+
+            </div>
+
+            <nav class="navigation">
+
+                <button class="nav-item active">
+                    🏠
+                    <span>Dashboard</span>
+                </button>
+
+                <button class="nav-item">
+                    🎯
+                    <span>Goals</span>
+                </button>
+
+                <button class="nav-item">
+                    📝
+                    <span>Notes</span>
+                </button>
+
+                <button class="nav-item">
+                    ⏱️
+                    <span>Focus</span>
+                </button>
+
+                <button class="nav-item">
+                    🔗
+                    <span>Resources</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button id="themeToggle" class="theme-btn">
+                    🌙
+                    <span>Dark Mode</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+            <!-- HEADER -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <p class="welcome-label">
+                        Developer Workspace
+                    </p>
+
+                    <h1>
+                        Good Morning 👋
+                    </h1>
+
+                    <p class="date" id="currentDate">
+                        Today
+                    </p>
+
+                </div>
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        V
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>Developer</strong>
+
+                        <span>Frontend Learner</span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- =========================
+                 PRODUCTIVITY STATS
+            ========================== -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        🎯
+                    </div>
+
+                    <div>
+
+                        <span>Today's Goals</span>
+
+                        <strong id="goalCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✅
+                    </div>
+
+                    <div>
+
+                        <span>Completed</span>
+
+                        <strong id="completedGoalCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ⏱️
+                    </div>
+
+                    <div>
+
+                        <span>Focus Sessions</span>
+
+                        <strong id="focusSessions">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        📝
+                    </div>
+
+                    <div>
+
+                        <span>Total Notes</span>
+
+                        <strong id="noteCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =========================
+                 MAIN GRID
+            ========================== -->
+
+            <section class="workspace-grid">
+
+                <!-- =========================
+                     DAILY GOALS
+                ========================== -->
+
+                <div class="workspace-card goals-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                🎯 Productivity
+                            </span>
+
+                            <h2>
+                                Today's Goals
+                            </h2>
+
+                        </div>
+
+                        <button
+                            id="addGoalBtn"
+                            class="primary-btn"
+                        >
+                            + Add Goal
+                        </button>
+
+                    </div>
+
+                    <div class="progress-wrapper">
+
+                        <div class="progress-info">
+
+                            <span>
+                                Daily Progress
+                            </span>
+
+                            <strong id="goalProgress">
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div
+                                id="goalProgressBar"
+                                class="progress"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="goalList"
+                        class="goal-list"
+                    >
+
+                        <!-- Goals generated by JavaScript -->
+
+                    </div>
+
+                </div>
+
+                <!-- =========================
+                     FOCUS TIMER
+                ========================== -->
+
+                <div class="workspace-card timer-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                ⏱️ Focus
+                            </span>
+
+                            <h2>
+                                Focus Session
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <div class="timer">
+
+                        <div
+                            id="timerDisplay"
+                            class="timer-display"
+                        >
+                            25:00
+                        </div>
+
+                        <p>
+                            Stay focused. One task at a time.
+                        </p>
+
+                    </div>
+
+                    <div class="timer-controls">
+
+                        <button
+                            id="startTimerBtn"
+                            class="primary-btn"
+                        >
+                            ▶ Start
+                        </button>
+
+                        <button
+                            id="pauseTimerBtn"
+                            class="secondary-btn"
+                        >
+                            ⏸ Pause
+                        </button>
+
+                        <button
+                            id="resetTimerBtn"
+                            class="secondary-btn"
+                        >
+                            ↻ Reset
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- =========================
+                     QUICK NOTES
+                ========================== -->
+
+                <div class="workspace-card notes-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                📝 Quick Capture
+                            </span>
+
+                            <h2>
+                                Quick Notes
+                            </h2>
+
+                        </div>
+
+                        <button
+                            id="addNoteBtn"
+                            class="primary-btn"
+                        >
+                            + Add Note
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="notesList"
+                        class="notes-list"
+                    >
+
+                        <!-- Notes generated by JavaScript -->
+
+                    </div>
+
+                </div>
+
+                <!-- =========================
+                     DEVELOPER RESOURCES
+                ========================== -->
+
+                <div class="workspace-card resources-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                🔗 Developer Tools
+                            </span>
+
+                            <h2>
+                                Quick Resources
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <div class="resource-grid">
+
+                        <a
+                            href="https://github.com"
+                            target="_blank"
+                            class="resource"
+                        >
+
+                            <span>🐙</span>
+
+                            <div>
+
+                                <strong>GitHub</strong>
+
+                                <small>
+                                    Code & repositories
+                                </small>
+
+                            </div>
+
+                        </a>
+
+                        <a
+                            href="https://developer.mozilla.org"
+                            target="_blank"
+                            class="resource"
+                        >
+
+                            <span>📚</span>
+
+                            <div>
+
+                                <strong>MDN</strong>
+
+                                <small>
+                                    Web documentation
+                                </small>
+
+                            </div>
+
+                        </a>
+
+                        <a
+                            href="https://leetcode.com"
+                            target="_blank"
+                            class="resource"
+                        >
+
+                            <span>🧩</span>
+
+                            <div>
+
+                                <strong>LeetCode</strong>
+
+                                <small>
+                                    DSA practice
+                                </small>
+
+                            </div>
+
+                        </a>
+
+                        <a
+                            href="https://stackoverflow.com"
+                            target="_blank"
+                            class="resource"
+                        >
+
+                            <span>💬</span>
+
+                            <div>
+
+                                <strong>Stack Overflow</strong>
+
+                                <small>
+                                    Developer community
+                                </small>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
