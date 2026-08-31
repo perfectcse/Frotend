@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Job Application Command Center</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- =================================
+         APP
+    ================================== -->
+
+    <div class="app">
+
+        <!-- =================================
+             SIDEBAR
+        ================================== -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    💼
+                </div>
+
+                <div>
+                    <h2>JobTrack</h2>
+
+                    <span>
+                        Application Command Center
+                    </span>
+                </div>
+
+            </div>
+
+
+            <nav class="navigation">
+
+                <button
+                    class="nav-item active"
+                    data-section="dashboard"
+                >
+                    🏠
+                    <span>Dashboard</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="applications"
+                >
+                    📋
+                    <span>Applications</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="interviews"
+                >
+                    🎤
+                    <span>Interviews</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="offers"
+                >
+                    🎯
+                    <span>Offers</span>
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <button
+                    id="themeToggle"
+                    class="theme-btn"
+                >
+                    🌙
+                    <span>Dark Mode</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================
+             MAIN CONTENT
+        ================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================
+                 TOPBAR
+            ================================== -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <p class="welcome-label">
+                        Job Search Dashboard
+                    </p>
+
+                    <h1>
+                        Application Command Center
+                    </h1>
+
+                    <p
+                        class="date"
+                        id="currentDate"
+                    >
+                        Today
+                    </p>
+
+                </div>
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        V
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Job Seeker
+                        </strong>
+
+                        <span>
+                            Frontend / MERN Developer
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================
+                 STATISTICS
+            ================================== -->
+
+            <section class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        📋
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Applications
+                        </span>
+
+                        <strong id="totalApplications">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        🎤
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Interviews
+                        </span>
+
+                        <strong id="interviewCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        🎯
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Offers
+                        </span>
+
+                        <strong id="offerCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ⏳
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Active Applications
+                        </span>
+
+                        <strong id="activeApplications">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 TOOLBAR
+            ================================== -->
+
+            <section class="toolbar">
+
+                <div class="search-box">
+
+                    <span>🔍</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search company, role..."
+                    >
+
+                </div>
+
+
+                <div class="filters">
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="Wishlist">
+                            Wishlist
+                        </option>
+
+                        <option value="Applied">
+                            Applied
+                        </option>
+
+                        <option value="Screening">
+                            Screening
+                        </option>
+
+                        <option value="Interview">
+                            Interview
+                        </option>
+
+                        <option value="Offer">
+                            Offer
+                        </option>
+
+                        <option value="Rejected">
+                            Rejected
+                        </option>
+
+                        <option value="Accepted">
+                            Accepted
+                        </option>
+
+                    </select>
+
+
+                    <select id="roleFilter">
+
+                        <option value="all">
+                            All Roles
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        id="addApplicationBtn"
+                        class="primary-btn"
+                    >
+                        + Add Application
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 APPLICATION PIPELINE
+            ================================== -->
+
+            <section class="pipeline">
+
+                <!-- WISHLIST -->
+
+                <div
+                    class="pipeline-column"
+                    data-status="Wishlist"
+                >
+
+                    <div class="column-header">
+
+                        <div>
+
+                            <span class="status-dot wishlist">
+                            </span>
+
+                            <h2>
+                                Wishlist
+                            </h2>
+
+                        </div>
+
+                        <span
+                            id="wishlistCount"
+                            class="column-count"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="wishlistList"
+                        class="application-list"
+                    >
+                    </div>
+
+                </div>
+
+
+                <!-- APPLIED -->
+
+                <div
+                    class="pipeline-column"
+                    data-status="Applied"
+                >
+
+                    <div class="column-header">
+
+                        <div>
+
+                            <span class="status-dot applied">
+                            </span>
+
+                            <h2>
+                                Applied
+                            </h2>
+
+                        </div>
+
+                        <span
+                            id="appliedCount"
+                            class="column-count"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="appliedList"
+                        class="application-list"
+                    >
+                    </div>
+
+                </div>
+
+
+                <!-- SCREENING -->
+
+                <div
+                    class="pipeline-column"
+                    data-status="Screening"
+                >
+
+                    <div class="column-header">
+
+                        <div>
+
+                            <span class="status-dot screening">
+                            </span>
+
+                            <h2>
+                                Screening
+                            </h2>
+
+                        </div>
+
+                        <span
+                            id="screeningCount"
+                            class="column-count"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="screeningList"
+                        class="application-list"
+                    >
+                    </div>
+
+                </div>
+
+
+                <!-- INTERVIEW -->
+
+                <div
+                    class="pipeline-column"
+                    data-status="Interview"
+                >
+
+                    <div class="column-header">
+
+                        <div>
+
+                            <span class="status-dot interview">
+                            </span>
+
+                            <h2>
+                                Interview
+                            </h2>
+
+                        </div>
+
+                        <span
+                            id="interviewColumnCount"
+                            class="column-count"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="interviewList"
+                        class="application-list"
+                    >
+                    </div>
+
+                </div>
+
+
+                <!-- OFFER -->
+
+                <div
+                    class="pipeline-column"
+                    data-status="Offer"
+                >
+
+                    <div class="column-header">
+
+                        <div>
+
+                            <span class="status-dot offer">
+                            </span>
+
+                            <h2>
+                                Offer
+                            </h2>
+
+                        </div>
+
+                        <span
+                            id="offerColumnCount"
+                            class="column-count"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="offerList"
+                        class="application-list"
+                    >
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 EMPTY STATE
+            ================================== -->
+
+            <section
+                id="emptyState"
+                class="empty-state"
+            >
+
+                <div class="empty-icon">
+                    📭
+                </div>
+
+                <h2>
+                    No Applications Found
+                </h2>
+
+                <p>
+                    Add your first job application
+                    to start tracking your job search.
+                </p>
+
+                <button
+                    class="primary-btn"
+                    id="emptyAddBtn"
+                >
+                    + Add Application
+                </button>
+
+            </section>
+
+
+            <!-- =================================
+                 FOOTER
+            ================================== -->
+
+            <footer class="footer">
+
+                <p>
+                    Stay organized. Keep applying. Keep moving forward. 🚀
+                </p>
+
+            </footer>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- =================================
+         ADD APPLICATION MODAL
+    ================================== -->
+
+    <div
+        id="applicationModal"
+        class="modal-overlay"
+    >
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="section-label">
+                        Application
+                    </span>
+
+                    <h2 id="modalTitle">
+                        Add Job Application
+                    </h2>
+
+                </div>
+
+                <button
+                    id="closeModalBtn"
+                    class="close-btn"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="applicationForm">
+
+
+                <!-- COMPANY -->
+
+                <div class="form-group">
+
+                    <label for="companyInput">
+                        Company Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="companyInput"
+                        placeholder="e.g. Microsoft"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ROLE -->
+
+                <div class="form-group">
+
+                    <label for="roleInput">
+                        Job Role
+                    </label>
+
+                    <input
+                        type="text"
+                        id="roleInput"
+                        placeholder="e.g. Frontend Developer"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="statusInput">
+                            Status
+                        </label>
+
+                        <select
+                            id="statusInput"
+                            required
+                        >
+
+                            <option value="Wishlist">
+                                Wishlist
+                            </option>
+
+                            <option value="Applied">
+                                Applied
+                            </option>
+
+                            <option value="Screening">
+                                Screening
+                            </option>
+
+                            <option value="Interview">
+                                Interview
+                            </option>
+
+                            <option value="Offer">
+                                Offer
+                            </option>
+
+                            <option value="Rejected">
+                                Rejected
+                            </option>
+
+                            <option value="Accepted">
+                                Accepted
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DATE -->
+
+                    <div class="form-group">
+
+                        <label for="dateInput">
+                            Application Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dateInput"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- SALARY -->
+
+                <div class="form-group">
+
+                    <label for="salaryInput">
+                        Expected Salary
+                    </label>
+
+                    <input
+                        type="text"
+                        id="salaryInput"
+                        placeholder="e.g. ₹6–8 LPA"
+                    >
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="locationInput">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="locationInput"
+                        placeholder="e.g. Bengaluru / Remote"
+                    >
+
+                </div>
+
+
+                <!-- NOTES -->
+
+                <div class="form-group">
+
+                    <label for="notesInput">
+                        Notes
+                    </label>
+
+                    <textarea
+                        id="notesInput"
+                        rows="4"
+                        placeholder="Interview details, recruiter notes, next steps..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- FORM ACTIONS -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelModalBtn"
+                        class="secondary-btn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        Save Application
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
