@@ -1,0 +1,129 @@
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.dashboard-header h1 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.dashboard-header p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle,
+.notification-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: 17px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.theme-toggle:hover,
+.notification-button:hover {
+  background: #f3f4f6;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 8px;
+}
+
+.profile-avatar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #111827;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.profile strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.profile span {
+  display: block;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* ============================= */
+/* DARK MODE */
+/* ============================= */
+
+.layout.dark .dashboard-header h1 {
+  color: #f4f4f5;
+}
+
+.layout.dark .dashboard-header p {
+  color: #a1a1aa;
+}
+
+.layout.dark .theme-toggle,
+.layout.dark .notification-button {
+  border-color: #3f3f46;
+  background: #27272a;
+}
+
+.layout.dark .theme-toggle:hover,
+.layout.dark .notification-button:hover {
+  background: #3f3f46;
+}
+
+.layout.dark .profile strong {
+  color: #f4f4f5;
+}
+
+.layout.dark .profile span {
+  color: #a1a1aa;
+}
+
+.layout.dark .profile-avatar {
+  background: #f4f4f5;
+  color: #18181b;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 640px) {
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .profile {
+    margin-left: auto;
+  }
+}

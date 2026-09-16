@@ -1,0 +1,41 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fb;
+  transition: background 0.3s ease;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+}
+
+.main-content h1 {
+  margin-bottom: 12px;
+}
+
+/* ============================= */
+/* DARK MODE */
+/* ============================= */
+
+.layout.dark {
+  background: #18181b;
+}
+
+.layout.dark .main-content {
+  color: #f4f4f5;
+}
+
+.layout.dark .dashboard-header p {
+  color: #a1a1aa;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 640px) {
+  .main-content {
+    padding: 24px 18px;
+  }
+}
