@@ -167,7 +167,13 @@ function TransactionList({ transactions, onSave }) {
               </strong>
 
               <span className="transaction-date">
-                {transaction.date}
+                {new Date(
+                  transaction.date
+                ).toLocaleDateString("en-IN", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                })}
               </span>
 
               <div className="transaction-actions">
@@ -195,7 +201,11 @@ function TransactionList({ transactions, onSave }) {
           ))
         ) : (
           <div className="transaction-empty">
-            <p>No transactions found.</p>
+            <p>
+              {transactions.length === 0
+                ? "No transactions yet. Add your first transaction."
+                : "No transactions match your search or filter."}
+            </p>
           </div>
         )}
       </div>
