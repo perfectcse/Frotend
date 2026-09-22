@@ -1,0 +1,187 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fb;
+  transition: background 0.3s ease;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  min-width: 0;
+}
+
+/* DARK MODE */
+
+.layout.dark {
+  background: #18181b;
+}
+
+.layout.dark .main-content {
+  color: #f4f4f5;
+}
+
+.layout.dark .dashboard-intro h2,
+.layout.dark .application-header h2,
+.layout.dark .interview-header h2,
+.layout.dark .learning-header h2,
+.layout.dark .analytics-header h2 {
+  color: #f4f4f5;
+}
+
+.layout.dark .dashboard-intro p,
+.layout.dark .application-header p,
+.layout.dark .interview-header p,
+.layout.dark .learning-header p,
+.layout.dark .analytics-header p {
+  color: #a1a1aa;
+}
+
+/* CARDS */
+
+.layout.dark .summary-card,
+.layout.dark .application-form,
+.layout.dark .application-item,
+.layout.dark .interview-form,
+.layout.dark .interview-item,
+.layout.dark .learning-form,
+.layout.dark .learning-item,
+.layout.dark .analytics-card,
+.layout.dark .interview-stat-card {
+  border-color: #2f2f33;
+  background: #202023;
+}
+
+/* MAIN TEXT */
+
+.layout.dark .summary-card-value,
+.layout.dark .application-main h3,
+.layout.dark .interview-main h3,
+.layout.dark .learning-main h3,
+.layout.dark .analytics-card-header h3,
+.layout.dark .interview-stat-card strong,
+.layout.dark .learning-progress-header strong,
+.layout.dark .learning-average strong,
+.layout.dark .learning-stats strong,
+.layout.dark .interview-overview strong,
+.layout.dark .status-row-header strong {
+  color: #f4f4f5;
+}
+
+/* SECONDARY TEXT */
+
+.layout.dark .summary-card-title,
+.layout.dark .summary-card-description,
+.layout.dark .company-name,
+.layout.dark .interview-company,
+.layout.dark .learning-category,
+.layout.dark .application-meta,
+.layout.dark .application-notes,
+.layout.dark .interview-meta,
+.layout.dark .interview-notes,
+.layout.dark .learning-meta,
+.layout.dark .learning-notes,
+.layout.dark .analytics-card-header p,
+.layout.dark .learning-average span,
+.layout.dark .learning-stats span,
+.layout.dark .interview-overview span,
+.layout.dark .status-row-header {
+  color: #a1a1aa;
+}
+
+/* INPUTS */
+
+.layout.dark .application-form input,
+.layout.dark .application-form select,
+.layout.dark .application-form textarea,
+.layout.dark .application-filters input,
+.layout.dark .application-filters select,
+.layout.dark .interview-form input,
+.layout.dark .interview-form select,
+.layout.dark .interview-form textarea,
+.layout.dark .interview-filters input,
+.layout.dark .interview-filters select,
+.layout.dark .learning-form input,
+.layout.dark .learning-form select,
+.layout.dark .learning-form textarea,
+.layout.dark .learning-filters input,
+.layout.dark .learning-filters select {
+  border-color: #3f3f46;
+  background: #27272a;
+  color: #f4f4f5;
+}
+
+.layout.dark .application-form label,
+.layout.dark .interview-form label,
+.layout.dark .learning-form label {
+  color: #d4d4d8;
+}
+
+/* ACTION BUTTONS */
+
+.layout.dark .application-actions a,
+.layout.dark .application-actions button,
+.layout.dark .interview-actions button,
+.layout.dark .learning-actions button,
+.layout.dark .form-actions button:first-child {
+  border-color: #3f3f46;
+  background: #27272a;
+  color: #e4e4e7;
+}
+
+.layout.dark .application-actions a:hover,
+.layout.dark .application-actions button:hover,
+.layout.dark .interview-actions button:hover,
+.layout.dark .learning-actions button:hover,
+.layout.dark .form-actions button:first-child:hover {
+  background: #3f3f46;
+}
+
+/* PROGRESS TRACKS */
+
+.layout.dark .learning-progress-track,
+.layout.dark .analytics-progress-track {
+  background: #3f3f46;
+}
+
+/* EMPTY STATES */
+
+.layout.dark .application-empty,
+.layout.dark .interview-empty,
+.layout.dark .learning-empty {
+  border-color: #3f3f46;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 210px;
+  }
+
+  .main-content {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nav-title {
+    width: 100%;
+  }
+
+  .main-content {
+    padding: 24px 18px;
+  }
+}

@@ -1,0 +1,181 @@
+.recent-applications {
+  padding: 22px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.recent-applications-header {
+  margin-bottom: 18px;
+}
+
+.recent-applications-header h2 {
+  margin-bottom: 6px;
+  color: #111827;
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.recent-applications-header p {
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.recent-application-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recent-application-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.recent-application-item:hover {
+  transform: translateY(-1px);
+  border-color: #d1d5db;
+  background: #ffffff;
+}
+
+.recent-application-main {
+  min-width: 0;
+}
+
+.recent-application-main h3 {
+  overflow: hidden;
+  margin-bottom: 5px;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recent-application-main p {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.recent-application-details {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.recent-application-status {
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.recent-application-status.applied {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.recent-application-status.interview {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.recent-application-status.selected {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.recent-application-status.rejected {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.recent-application-date {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.recent-applications-empty {
+  padding: 32px 20px;
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.recent-applications-empty p {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .recent-application-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .recent-application-details {
+    align-items: flex-start;
+  }
+
+  .recent-application-main h3 {
+    white-space: normal;
+  }
+}
+
+/* DARK MODE */
+
+.layout.dark .recent-applications {
+  border-color: #2f2f33;
+  background: #202023;
+}
+
+.layout.dark .recent-applications-header h2 {
+  color: #f4f4f5;
+}
+
+.layout.dark .recent-applications-header p {
+  color: #a1a1aa;
+}
+
+.layout.dark .recent-application-item {
+  border-color: #2f2f33;
+  background: #27272a;
+}
+
+.layout.dark .recent-application-item:hover {
+  border-color: #3f3f46;
+  background: #2f2f33;
+}
+
+.layout.dark .recent-application-main h3 {
+  color: #f4f4f5;
+}
+
+.layout.dark .recent-application-main p,
+.layout.dark .recent-application-date {
+  color: #a1a1aa;
+}
+
+.layout.dark .recent-applications-empty {
+  border-color: #3f3f46;
+}
+
+.layout.dark .recent-applications-empty p {
+  color: #a1a1aa;
+}
